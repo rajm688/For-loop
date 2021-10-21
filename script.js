@@ -1,57 +1,25 @@
-// //Set up Http Request
-// var xhr = new XMLHttpRequest();
-
-// //create and send Get request
-// //GET,POST,PUT,DELETE,
-// // Second =>ENdpoint of the url:server url
-// xhr.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
-// // set up our listener to process the request
-// xhr.onload = function () {
-//   //process the request and server will return the data
-//   if (xhr.status >= 200 && xhr.status < 300) {
-//     var t = JSON.parse(this.response);
-//     // console.log(t);
-//     // document.write(t);
-//     for(i=0;i<t.length;i++){
-//     console.log(t[i].name);
-//     console.log(t[i].population);
-//     console.log(t[i].region);
-//     console.log(t[i].currency);
-//   }
-//   } else {
-//     //it should not give you data
-//     console.log("Data is not available");
-//     // document.write(t);
-//   }
-// };
-
-// xhr.send();
-//Set up Http Request
-var xhr = new XMLHttpRequest();
-
-//create and send Get request
-//GET,POST,PUT,DELETE,
-// Second =>ENdpoint of the url:server url
-xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
-// set up our listener to process the request
-xhr.onload = function () {
-  //process the request and server will return the data
-  if (xhr.status >= 200 && xhr.status < 300) {
-    var t = JSON.parse(this.response);
-   //console.log(t);
-    //document.write(t);
-    for(i=0;i<t.length;i++){
-    console.log(`name : ${t[i].name}
-                email_ID : ${t[i].email}
-                Address : ${t[i]["address"].city}
-                phone : ${t[i].phone}`);
- }
-  } else {
-    //it should not give you data
-    console.log("Data is not available");
-    // document.write(t);
-  }
-};
-
-xhr.send();
-
+class product{
+    constructor(p1, name1,rate){
+        this.p1 =p1;
+        this.name1 = name1;
+        this.rate = rate
+    }
+}
+let product1 = new product("p1", "name 1", "100");
+let product2 = new product("p2", "name 2", "200");
+let product3 = new product("p3", "name 3", "300");
+let arr = [product1, product2, product3]
+for(i=0;i<arr.length;i++){
+    console.log(arr[i]);
+}
+console.log("__________________________");
+for(value in arr){
+    console.log(arr[value])
+}
+console.log("__________________________");
+for(value of arr){
+    console.log(value)
+}
+console.log("__________________________");
+arr.forEach((value => console.log(value)
+))
